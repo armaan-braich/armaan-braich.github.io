@@ -5,6 +5,22 @@ const fadeSection = document.getElementsByClassName('fade');
 const bodySection = document.getElementsByTagName('body');
 const allProjects = document.querySelectorAll('.project');
 
+const chessBtn = document.getElementById("chessBtn");
+const carBtn = document.getElementById("carBtn");
+const tempestBtn = document.getElementById("tempestBtn");
+
+chessBtn.addEventListener("click", () => {
+    window.location.href = "chess.html";
+});
+
+carBtn.addEventListener("click", () => {
+    window.location.href = "car.html";
+});
+
+tempestBtn.addEventListener("click", () => {
+    window.location.href = "tempest.html";
+});
+
 allProjects.forEach((project) => {
     project.addEventListener('click', () => expand(project));
 });

@@ -16,6 +16,25 @@ body {
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
+.container {
+    background-color: #222831; /* semi-transparent overlay */
+    color: #EEEEEE;
+    width: 98vw;
+    height: 85vh;
+    margin: 10px; /* centers the container and offsets from fixed header */
+    margin-top: 30px;
+    padding: 60px 50px;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.8;
+    font-size: 18px;
+    position: relative;
+    overflow-y: auto;
+    z-index: 1;
+}
+
 header {
     background-color: #222831;
     margin: 0;
@@ -25,6 +44,7 @@ header {
     align-items: center;
     position: fixed;
     top: 0;
+    left: 0;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
     width: 100vw;
     z-index: 9999;
@@ -222,7 +242,6 @@ header a:hover::after {
 
 .project:hover {
     background-color: #EEEEEE;
-    outline: 2px solid #111122;
     color: #222831; 
     transform: scale(1.03);
     
@@ -248,52 +267,86 @@ header a:hover::after {
     display: flex; /* Show additional text */
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
     transition: transform 0.5s ease;
     transform: translateY(-50px);
-    
 }
 
 .project h2 {
     transition: transform 0.5s ease;
 }
 
-/* Horizontally align h3 and h1 */
-.project.expanded h3,
-.project.expanded h1 {
-    display: inline-block;
-    margin: 0 10px;
-    font-size: 30px;
+.project.expanded .headers {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 50px;
+    margin-bottom: 25px;
 }
 
-/* The container that holds <p> and the video */
-.project-details {
-    display: flex;
-    flex-direction: row; /* Horizontal layout */
-    gap: 20px;
+.project.expanded .headers h1, 
+.project.expanded .headers h5 {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.project.expanded .headers h5 {
+    margin-top: 23px;
+    font-size: 33px;
+}
+
+.project.expanded .more-info p,
+.project.expanded .more-info iframe {
     margin-top: 10px;
-    align-items: flex-start;
-    max-height: 220px; /* Keep it neat */
-    overflow: hidden;
-  }
+}
 
-/* Make the text scrollable */
-.project-details p {
-    flex: 1;
+.project.expanded .more-info p {
+    max-height: 150px;
     overflow-y: auto;
-    max-height: 200px;
-    margin: 0;
-    padding-right: 10px;
-    font-size: 16px;
-    line-height: 1.4;
-  }
+    padding-right: 4px;
+}
 
-/* Video stays fixed size */
-.video-container {
-    width: 300px;
-    height: 200px;
-    flex-shrink: 0;
-  }
+#description {
+    margin-bottom: 0;
+}
+
+.project.expanded .more-info p::-webkit-scrollbar {
+    width: 5px;
+}
+
+.project.expanded .more-info p::-webkit-scrollbar-thumb {
+    background-color: #888;  /* Set the color of the scrollbar thumb */
+    border-radius: 10px;  /* Optional: rounded corners for the thumb */
+}
+
+
+.project.expanded .more-info iframe {
+    width: 200px; /* Adjust to desired width */
+    height: 150px; /* Adjust to desired height */
+    margin: 10px; /* Ensure no extra margin is added */
+}
+
+.project .more-info button {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    background-color: #222831;
+    color: #EEEEEE;
+    outline: 2px solid #EEEEEE;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border-radius: 8px; /* Optional: rounded corners */
+}
+
+.project .more-info button:hover {
+    background-color: #EEEEEE; /* Darker on hover */
+    color: #222831; /* Light text */
+    outline: 2px solid #222831;
+    transform: scale(1.05);
+}
 
 #contact {
     background-color: #222831;
