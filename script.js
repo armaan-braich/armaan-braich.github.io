@@ -5,9 +5,9 @@ const fadeSection = document.getElementsByClassName('fade');
 const bodySection = document.getElementsByTagName('body');
 const allProjects = document.querySelectorAll('.project');
 
-allProjects.forEach((project) => {
+/* allProjects.forEach((project) => {
     project.addEventListener('click', () => expand(project));
-});
+}); */
 
 function fadeOnScroll() {
     const scrollPosition = window.scrollY;

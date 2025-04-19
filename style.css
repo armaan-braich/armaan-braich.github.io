@@ -213,8 +213,6 @@ header a:hover::after {
     text-align: center;
     display: flex; /* Use Flexbox for alignment */
     justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-    flex-direction: column;
     border-radius: 8px; /* Optional: rounded corners */
     outline: 2px solid #EEEEEE;
     transition: outline-color 0.3s ease, background-color 0.3s ease, scale 1s ease;
@@ -228,22 +226,6 @@ header a:hover::after {
     
 }
 
-.project.expanded {
-    transform-origin: top left;
-    transform: scale(2.25);
-    z-index: 1000;
-    font-size: 40px;
-    transition: width 0.5s ease-in-out, height 0.5s ease-in-out, transform 0.5s ease-in-out;
-    color: #222831;
-    background-color: #EEEEEE;
-}
-
-.project .more-info {
-    display: none; /* Initially hidden */
-    margin-top: 10px;
-    font-size: 14px;
-}
-
 .project.expanded .more-info {
     display: flex; /* Show additional text */
     justify-content: center;
@@ -254,16 +236,27 @@ header a:hover::after {
     
 }
 
-.project h2 {
+.project.headers {
+    display:flex; 
+    flex-direction: row; 
+    justify-content: center; 
+    align-items: center;
+}
+.project h1 {
     transition: transform 0.5s ease;
 }
 
 /* Horizontally align h3 and h1 */
-.project.expanded h3,
-.project.expanded h1 {
+.project h3 {
     display: inline-block;
     margin: 0 10px;
-    font-size: 30px;
+    font-size: 30;
+}
+
+.project h1 {
+    display: inline-block;
+    font-size: 25;
+    margin: 20px;
 }
 
 /* The container that holds <p> and the video */
