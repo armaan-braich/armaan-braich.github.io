@@ -230,11 +230,12 @@ header a:hover::after {
 
 .project.expanded {
     transform-origin: top left;
-    transform: scale(2.25); /* Scale the div by a factor of 3 or adjust as needed */
-    z-index: 1000; /* Bring the expanded div to the front */
-    transition: transform 0.5s ease; /* Smooth scale transition */
+    transform: scale(2.25);
+    z-index: 1000;
     font-size: 40px;
-    transition: width 0.5s ease-in-out, height 0.5s ease-in-out, transform 0.5s ease-in-out
+    transition: width 0.5s ease-in-out, height 0.5s ease-in-out, transform 0.5s ease-in-out;
+    color: #222831;
+    background-color: #EEEEEE;
 }
 
 .project .more-info {
@@ -257,9 +258,42 @@ header a:hover::after {
     transition: transform 0.5s ease;
 }
 
-.project.expanded h3 {
-    transform: translateY(-50px); /* Adjust to move the header up */
+/* Horizontally align h3 and h1 */
+.project.expanded h3,
+.project.expanded h1 {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 30px;
 }
+
+/* The container that holds <p> and the video */
+.project-details {
+    display: flex;
+    flex-direction: row; /* Horizontal layout */
+    gap: 20px;
+    margin-top: 10px;
+    align-items: flex-start;
+    max-height: 220px; /* Keep it neat */
+    overflow: hidden;
+  }
+
+/* Make the text scrollable */
+.project-details p {
+    flex: 1;
+    overflow-y: auto;
+    max-height: 200px;
+    margin: 0;
+    padding-right: 10px;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+/* Video stays fixed size */
+.video-container {
+    width: 300px;
+    height: 200px;
+    flex-shrink: 0;
+  }
 
 #contact {
     background-color: #222831;
