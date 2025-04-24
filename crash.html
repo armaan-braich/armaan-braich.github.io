@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>crash – Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Oswald:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class = "fade">
+        <div class="container">
+            <h1>crash</h1>
+            <h3>C · Process Management · Signal Handling</h3>
+            <p>
+                This project is a Unix-style terminal shell, developed in <strong>C</strong>, that replicates the core functionality of a standard command-line shell. It supports features such as <strong>process creation and management, job control, input/output redirection, piping, and signal handling</strong>. Built from the ground up, it involved careful attention to low-level system interactions and concurrency.
+                </p>
+                <p>
+                    A major focus of the implementation was robust signal handling, as it was critical to proper job tracking. Ensuring correct behavior under concurrent execution required careful coordination between signal handlers and the main control flow, and includes custom <strong>signal-safe utilities</strong>, such as a signal-safe string formatting function designed for use within signal handlers.
+                </p>
+                <p>
+                The shell was thoroughly tested across a wide range of use cases to ensure stability and correctness, especially under concurrent job execution and complex command sequences. This project offered deep insight into <strong>Unix process control</strong>, <strong>low-level I/O</strong>, and <strong>safe systems programming practices</strong>.
+                </p>
+        </div>
+    </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

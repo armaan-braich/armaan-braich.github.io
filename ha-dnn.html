@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hardware Accelerated DNN – Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Oswald:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class = "fade">
+        <div class="container">
+            <h1>Hardware Accelerated DNN</h1>
+            <h3>Verilog · Quartus · ModelSim</h3>
+            <p>
+                This project is a fully optimized <strong>DNN hardware accelerator</strong> built using <strong>SystemVerilog</strong> for FPGA development. The goal was to create a hardware solution that could significantly speed up Deep Neural Network (DNN) inference on embedded systems.
+                I’m passionate about improving computational efficiency, and this project gave me the opportunity to dive deep into hardware design, optimizing every detail of the data path and memory hierarchy.
+                The accelerator handles <strong>matrix operations and memory management</strong> to allow the CPU to focus on more complex computations.
+                One of the key achievements was achieving a <strong>100% speedup</strong> over an older implementation by doubling the interfaces working on the computations.
+                To ensure correctness and reliability, the program was tested thoroughly against testbenches to verify that all data transitions, memory operations, and calculations were performed as expected under different conditions.
+            </p>            
+            <img src="hardware_accelerator.jpg" width="560" height="315"></img>
+            <p>Result of the edge detection from the DNN, visualized using a VGA wrapper. The hardware accelerators were meant to optimize the performance of the neural network.</p>
+        </div>
+    </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

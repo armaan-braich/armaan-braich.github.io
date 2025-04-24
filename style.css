@@ -284,38 +284,40 @@ header a:hover::after {
 
 .project.expanded .headers {
     display: flex; 
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     flex-direction: row;
+    width: 100%;
     margin-top: 50px;
-    margin-bottom: 25px;
-}
-
-.project.expanded .headers h1, 
-.project.expanded .headers h5 {
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-bottom: 30px;
 }
 
 .project.expanded .headers h5 {
     margin-top: 20px;
-    margin-left: 8px;
+    margin-left: auto;
 }
 
 .project.expanded .more-info p,
-.project.expanded .more-info iframe {
+.project.expanded .more-info iframe,
+.project.expanded .more-info img {
     margin-top: 10px;
     max-height: 125px;
 }
 
 .project.expanded .more-info p {
     overflow-y: auto;
-    padding-right: 4px;
+    width: 15vw;
+    margin-right: 10px;
 }
 
-#description {
+.project.expanded #description {
     margin-top: 20px;
     margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
     max-height: 200px;
 }
 
@@ -328,11 +330,11 @@ header a:hover::after {
     border-radius: 10px;  /* Optional: rounded corners for the thumb */
 }
 
-
-.project.expanded .more-info iframe {
-    width: 200px; /* Adjust to desired width */
-    height: 150px; /* Adjust to desired height */
-    margin: 10px; /* Ensure no extra margin is added */
+.project.expanded .more-info iframe,
+.project.expanded .more-info img {
+    width: 200px; 
+    height: 150px; 
+    margin-left: auto; 
 }
 
 .project .more-info button {
@@ -357,11 +359,15 @@ header a:hover::after {
     transform: scale(1.05);
 }
 
-.project.expanded .headers #carHeader {
+.project.expanded .headers .smallHeader {
     font-size: 35px;
 }
 
-.project.expanded .headers #carHeadGenre {
+.project.expanded .headers .extraSmallHeader {
+    font-size: 30px;
+}
+
+.project.expanded .headers .smallGenre {
     font-size: 25px;
     margin-top: 15px;
 }

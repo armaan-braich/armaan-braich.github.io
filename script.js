@@ -8,6 +8,15 @@ const allProjects = document.querySelectorAll('.project');
 const chessBtn = document.getElementById("chessBtn");
 const carBtn = document.getElementById("carBtn");
 const tempestBtn = document.getElementById("tempestBtn");
+const crashBtn = document.getElementById("crashBtn");
+const messengerBtn = document.getElementById("messengerBtn");
+const dnnBtn = document.getElementById("dnnBtn");
+const recipeBtn = document.getElementById("recipeBtn");
+const baccaratBtn = document.getElementById("baccaratBtn");
+const osBtn = document.getElementById("osBtn");
+
+const contactEmail = document.getElementById("email");
+const contactPhone = document.getElementById("phone");
 
 chessBtn.addEventListener("click", () => {
     window.location.href = "chess.html";
@@ -21,9 +30,61 @@ tempestBtn.addEventListener("click", () => {
     window.location.href = "tempest.html";
 });
 
+crashBtn.addEventListener("click", () => {
+    window.location.href = "crash.html";
+});
+
+messengerBtn.addEventListener("click", () => {
+    window.location.href = "messenger.html";
+});
+
 allProjects.forEach((project) => {
     project.addEventListener('click', () => expand(project));
 });
+
+dnnBtn.addEventListener("click", () => {
+    window.location.href = "ha-dnn.html";
+});
+
+recipeBtn.addEventListener("click", () => {
+    window.location.href = "recipe.html";
+});
+
+baccaratBtn.addEventListener("click", () => {
+    window.location.href = "baccarat.html";
+});
+
+osBtn.addEventListener("click", () => {
+    window.location.href = "os161.html";
+});
+
+
+contactEmail.addEventListener("click", () => {
+    copyToClip("email");
+});
+
+contactPhone.addEventListener("click", () => {
+    copyToClip("phone");
+});
+
+function copyToClip(type) {
+    if (type === "email") {
+        element = contactEmail;
+        text = "armaanbraich@hotmail.com";
+    }
+    else {
+        element = contactPhone;
+        text = "2369994488";
+    }
+    navigator.clipboard.writeText(text).then(() => {
+        const originalText = element.textContent;
+        element.textContent = "Copied!";
+        setTimeout(() => {
+            element.textContent = originalText;
+        }, 1500);
+    });
+}
+
 
 function fadeOnScroll() {
     const scrollPosition = window.scrollY;
@@ -65,7 +126,7 @@ function expand(project) {
 
     // Determine transform-origin based on position
     let originX = xPos < 0.33 ? "0%" : xPos > 0.66 ? "100%" : "50%";
-    let originY = yPos < 0.5 ? "0%" : "100%";
+    let originY = yPos < 0.33 ? "0%" : (yPos < 0.66) ? "50%" : "100%";
 
     // Apply transform-origin and expand
     project.style.transformOrigin = `${originX} ${originY}`;

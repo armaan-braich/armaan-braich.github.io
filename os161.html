@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OS161 – Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Oswald:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class = "fade">
+        <div class="container">
+            <h1>OS 161</h1>
+            <h3>C · Syscalls · VM · Synchronization</h3>
+            <p>
+                This project was built on the <strong>OS/161 operating system</strong> and involved developing core parts of a real kernel from scratch in C. Through this project, I implemented a wide range of functionality: 
+                <strong>system calls (e.g., execv, fork, waitpid), file handling, process lifecycle management, virtual memory handling, and synchronization primitives</strong> like locks and condition variables.
+                <br>
+                One of the key challenges was designing robust data structures and systems to keep track of system state, like <strong>process tables and file tables</strong>. This, along with ensuring proper concurrency situation handling, was essential in order to implement the low-level functionality for syscalls like <strong>waitpid</strong>. The implementation of the virtual memory system, syscalls, synchronization primitives, process management, gave me valuable experience, as well as a deeper appreciation for the inner workings of a computer.
+                <br>
+                Debugging was performed through careful kernel-level print tracing and GDB, and correctness was validated by passing official OS/161 test suites.
+            </p>
+        </div>
+    </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
