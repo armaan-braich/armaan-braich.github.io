@@ -5,7 +5,7 @@ html {
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 
 body {
@@ -13,6 +13,8 @@ body {
     font-family: 'Oswald', sans-serif; /* Apply boxy font globally */
     height: 100vh;
     width: 100%;
+    margin: 0;
+    padding: 0;
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
@@ -106,12 +108,13 @@ header a:hover::after {
     align-items: center;
     flex-direction: column;
     padding: 0;
-    margin: 0;
+    margin-top: 0;
     height: 100vh;
-    width: 100%;
+    width: 120%;
     background: linear-gradient(-45deg, #b7bdc7, #708099, #31363F, #242a33);
 	background-size: 400% 400%;
 	animation: gradient 10s ease infinite;
+    overflow-y: auto;
 }
 
 @keyframes gradient {
@@ -127,47 +130,125 @@ header a:hover::after {
 }
 
 #home {
-    scroll-margin-top: 500px;
     color: #EEEEEE;
     display: flex;
-    flex-direction: column;
     justify-content: center; /* Center content horizontally */
     align-items: center; /* Center content vertically */
-    position: relative;
-    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    width: 100vw; /* Make sure the container takes up the full width of the viewport */
+    height: 100vh; /* Make sure the container takes the full height of the viewport */
 }
 
 #home h1 {
     font-size: 100px;
-    margin-bottom: 3px;
 }
 
 #home p {
-    font-size: 25px
+    font-size: 25px;
+}
+
+@media (max-width: 1400px) {
+    #home {
+        padding: 20px; /* Add some padding for smaller screens */
+    }
+
+    #home h1 {
+        font-size: 50px; /* Reduce font size for smaller screens */
+    }
+
+    #home p {
+        font-size: 18px; /* Reduce font size for smaller screens */
+    }
+
+    #full-description {
+        width: 100%; /* Allow it to take full width */
+        max-width: none; /* Remove any max-width constraint */
+    }
+}
+
+@media (max-width: 1000px) {
+    #home {
+        padding: 20px; /* Add some padding for smaller screens */
+    }
+
+    #home h1 {
+        font-size: 35px; /* Reduce font size for smaller screens */
+    }
+
+    #home p {
+        font-size: 2px; /* Reduce font size for smaller screens */
+    }
+
+    #full-description {
+        width: 100%; /* Allow it to take full width */
+        max-width: none; /* Remove any max-width constraint */
+    }
+}
+
+@media (max-height: 900px) {
+    #home {
+        padding: 20px;
+    }
+
+    #home h1 {
+        font-size: 50px;
+    }
+
+    #home p {
+        font-size: 18px;
+    }
+
+    #full-description {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+@media (max-height: 700px) {
+    #home {
+        padding: 15px;
+        flex-direction: column; /* Optional if content is too squished horizontally */
+    }
+
+    #home h1 {
+        font-size: 35px;
+    }
+
+    #home p {
+        font-size: 14px;
+    }
+
+    #full-description {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+@media (max-height: 500px) {
+    #home h1 {
+        font-size: 28px;
+    }
+
+    #home p {
+        font-size: 12px;
+    }
+
+    #full-description {
+        padding-top: 20px;
+    }
+}
+
+#name {
+    flex: 1;
 }
 
 #full-description {
+    flex: 2;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 0%;
-}
-
-#about, #skills {
-    color: #EEEEEE;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    opacity: 0;
-    position: relative;
-    margin-top: 5%;
-    margin-bottom: 15%;
-    transform: translateX(200%);
-    transition: opacity 1s ease-in-out, transform 0.9s ease-in-out;
+    width: auto; /* Allow it to grow based on content, avoid forcing a fixed width */
+    max-width: 100%;
 }
 
 /* Styling the about content */
@@ -179,11 +260,9 @@ header a:hover::after {
     word-wrap: break-word;
     overflow-wrap: break-word;
     white-space: normal;
-    position: absolute;
-    width: 30%;
-    padding-bottom: 20px;
-    transition: opacity 1s ease-in-out;
-    font-size: 30px;
+    position: relative;
+    width: 50%;
+    margin-bottom: 15px;
 }
 
 .skills-content {
@@ -194,15 +273,9 @@ header a:hover::after {
     word-wrap: break-word;
     overflow-wrap: break-word;
     white-space: normal;
-    position: absolute;
-    width: 30%;
-    transition: opacity 1s ease-in-out;
-    font-size: 30px;
-}
-
-.stop-scrolling {
-    height: 100%;
-    overflow: hidden;
+    position: relative;
+    width: 50%;
+    margin-top: 15px;
 }
 
 #projects {
@@ -235,7 +308,7 @@ header a:hover::after {
     height: 30vh;
     padding: 15px;
     margin: 20px;
-    font-size: 50px;
+    font-size: 40px;
     text-align: center;
     display: flex; /* Use Flexbox for alignment */
     justify-content: center; /* Center content horizontally */
@@ -246,130 +319,35 @@ header a:hover::after {
     transition: outline-color 0.3s ease, background-color 0.3s ease, scale 1s ease;
 }
 
+@media (max-width: 1400px) {
+    .project {
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .project {
+        font-size: 20px;
+    }
+}
+
+@media (max-height: 900px) {
+    .project {
+        font-size: 35px;
+    }
+}
+
+@media (max-height: 600px) {
+    .project {
+        font-size: 20px;
+    }
+}
+
 .project:hover {
     background-color: #EEEEEE;
     color: #222831; 
     transform: scale(1.03);
     
-}
-
-.project.expanded {
-    transform-origin: top left;
-    transform: scale(2.25);
-    z-index: 1000;
-    font-size: 40px;
-    transition: width 0.5s ease-in-out, height 0.5s ease-in-out, transform 0.5s ease-in-out;
-    color: #222831;
-    background-color: #EEEEEE;
-}
-
-.project .more-info {
-    display: none; /* Initially hidden */
-    margin-top: 10px;
-    font-size: 14px;
-}
-
-.project.expanded .more-info {
-    display: flex; /* Show additional text */
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    transition: transform 0.5s ease;
-    transform: translateY(-50px);
-}
-
-.project h2 {
-    transition: transform 0.5s ease;
-}
-
-.project.expanded .headers {
-    display: flex; 
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: row;
-    width: 100%;
-    margin-top: 50px;
-    margin-bottom: 30px;
-}
-
-.project.expanded .headers h5 {
-    margin-top: 20px;
-    margin-left: auto;
-}
-
-.project.expanded .more-info p,
-.project.expanded .more-info iframe,
-.project.expanded .more-info img {
-    margin-top: 10px;
-    max-height: 125px;
-}
-
-.project.expanded .more-info p {
-    overflow-y: auto;
-    width: 15vw;
-    margin-right: 10px;
-}
-
-.project.expanded #description {
-    margin-top: 20px;
-    margin-bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    width: 100%;
-    max-height: 200px;
-}
-
-.project.expanded .more-info p::-webkit-scrollbar {
-    width: 5px;
-}
-
-.project.expanded .more-info p::-webkit-scrollbar-thumb {
-    background-color: #888;  /* Set the color of the scrollbar thumb */
-    border-radius: 10px;  /* Optional: rounded corners for the thumb */
-}
-
-.project.expanded .more-info iframe,
-.project.expanded .more-info img {
-    width: 200px; 
-    height: 150px; 
-    margin-left: auto; 
-}
-
-.project .more-info button {
-    padding: 10px 20px;
-    margin-bottom: 20px;
-    background-color: #222831;
-    color: #EEEEEE;
-    outline: 2px solid #EEEEEE;
-    border: none;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    border-radius: 4px; /* Optional: rounded corners */
-    margin-bottom: 5px;
-}
-
-.project .more-info button:hover {
-    background-color: #EEEEEE; /* Darker on hover */
-    color: #222831; /* Light text */
-    outline: 2px solid #222831;
-    transform: scale(1.05);
-}
-
-.project.expanded .headers .smallHeader {
-    font-size: 35px;
-}
-
-.project.expanded .headers .extraSmallHeader {
-    font-size: 30px;
-}
-
-.project.expanded .headers .smallGenre {
-    font-size: 25px;
-    margin-top: 15px;
 }
 
 #contact {
