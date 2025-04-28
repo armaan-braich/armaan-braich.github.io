@@ -115,6 +115,7 @@ header a:hover::after {
 	background-size: 400% 400%;
 	animation: gradient 10s ease infinite;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 @keyframes gradient {
@@ -134,117 +135,18 @@ header a:hover::after {
     display: flex;
     justify-content: center; /* Center content horizontally */
     align-items: center; /* Center content vertically */
-    width: 100%; /* Make sure the container takes up the full width of the viewport */
+    width: 100vw; /* Make sure the container takes up the full width of the viewport */
     height: 100vh; /* Make sure the container takes the full height of the viewport */
+    overflow-x: hidden;
 }
 
 #home h1 {
+    margin-top: 20px;
     font-size: 55px;
 }
 
 #home p {
     font-size: 24px;
-}
-
-@media (max-width: 1400px), (max-height: 750px) {
-    #home {
-        padding: 20px; /* Add some padding for smaller screens */
-    }
-
-    #home h1 {
-        font-size: 50px; /* Reduce font size for smaller screens */
-    }
-
-    #home p {
-        font-size: 18px; /* Reduce font size for smaller screens */
-    }
-
-    #full-description {
-        width: 100%; /* Allow it to take full width */
-        max-width: none; /* Remove any max-width constraint */
-    }
-}
-
-@media (max-width: 1000px), (max-height: 500){
-    #home {
-        padding: 20px; /* Add some padding for smaller screens */
-    }
-
-    #home h1 {
-        font-size: 35px; /* Reduce font size for smaller screens */
-    }
-
-    #home p {
-        font-size: 14px; /* Reduce font size for smaller screens */
-    }
-
-    #full-description {
-        width: 100%; /* Allow it to take full width */
-        max-width: none; /* Remove any max-width constraint */
-    }
-}
-
-/*
-@media (max-height: 900px) {
-    #home {
-        padding: 20px;
-    }
-
-    #home h1 {
-        font-size: 50px;
-    }
-
-    #home p {
-        font-size: 25px;
-    }
-
-    #full-description {
-        width: 100%;
-        max-width: none;
-    }
-}
-
-@media (max-height: 700px) {
-    #home {
-        padding: 15px;
-    }
-
-    #home h1 {
-        font-size: 35px;
-    }
-
-    #home p {
-        font-size: 14px;
-    }
-
-    #full-description {
-        width: 100%;
-        max-width: none;
-    }
-}
-
-@media (max-height: 500px) {
-    #home h1 {
-        font-size: 28px;
-    }
-
-    #home p {
-        font-size: 12px;
-    }
-
-    #full-description {
-        padding-top: 20px;
-    }
-}
-*/
-
-#name {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-left: 10%;
 }
 
 #full-description {
@@ -253,7 +155,15 @@ header a:hover::after {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
 
+#name {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10%;
 }
 
 /* Styling the about content */
@@ -267,20 +177,63 @@ header a:hover::after {
     white-space: normal;
     position: relative;
     width: 50%;
+    height: 66%;
     margin-bottom: 15px;
 }
 
-.skills-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: justify;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    white-space: normal;
-    position: relative;
-    width: 50%;
-    margin-top: 15px;
+@media (max-width: 1400px), (max-height: 650px) {
+    #home {
+        padding: 20px; /* Add some padding for smaller screens */
+        flex-direction: column;
+    }
+
+    #home h1 {
+        font-size: 50px; /* Reduce font size for smaller screens */
+    }
+
+    #home p {
+        font-size: 18px; /* Reduce font size for smaller screens */
+    }
+
+    #name {
+        margin-left: 0;
+        margin-bottom: 0;
+    }
+
+    .about-content {
+        width: 66%;
+        height: 50%;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+}
+
+@media (max-width: 1000px), (max-height: 400px){
+    #home {
+        padding: 20px; /* Add some padding for smaller screens */
+        flex-direction: column;
+    }
+
+    #home h1 {
+        font-size: 35px; /* Reduce font size for smaller screens */
+    }
+
+    #home p {
+        font-size: 14px; /* Reduce font size for smaller screens */
+    }
+
+    #full-description {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center; /* <-- this is very important */
+    }
+
+    #name {
+        margin-top: 15%;
+        margin-left: 0;
+    }
+
 }
 
 #projects {
@@ -335,20 +288,6 @@ header a:hover::after {
         font-size: 20px;
     }
 }
-
-/*
-@media (max-height: 900px) {
-    .project {
-        font-size: 35px;
-    }
-}
-
-@media (max-height: 600px) {
-    .project {
-        font-size: 20px;
-    }
-}
-*/
 
 .project:hover {
     background-color: #EEEEEE;
