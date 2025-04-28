@@ -138,6 +138,7 @@ header a:hover::after {
     width: 100vw; /* Make sure the container takes up the full width of the viewport */
     height: 100vh; /* Make sure the container takes the full height of the viewport */
     overflow-x: hidden;
+    margin-bottom: 5%;
 }
 
 #home h1 {
@@ -277,16 +278,31 @@ header a:hover::after {
     transition: outline-color 0.3s ease, background-color 0.3s ease, scale 1s ease;
 }
 
-@media (max-width: 1400px), (max-height: 900px) {
+.project .small {
+    font-size: 35px;
+}
+
+@media (max-width: 1400px), (max-height: 650px) {
     .project {
-        font-size: 35px;
+        font-size: 32px;
+        flex: 1 1 calc(33% - 20px);
+    }
+
+    .project .small {
+        font-size: 26px;
     }
 }
 
-@media (max-width: 1000px), (max-height: 600px) {
+@media (max-width: 1000px), (max-height: 400px) {
     .project {
         font-size: 20px;
+        flex: 1 1 calc(50% - 10px);
     }
+
+    .project .small {
+        font-size: 17px;
+    }
+    
 }
 
 .project:hover {
