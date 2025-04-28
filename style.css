@@ -133,12 +133,18 @@ header a:hover::after {
 #home {
     color: #EEEEEE;
     display: flex;
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-    width: 100vw; /* Make sure the container takes up the full width of the viewport */
-    height: 100vh; /* Make sure the container takes the full height of the viewport */
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
     overflow-x: hidden;
     margin-bottom: 5%;
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
+}
+
+#home::-webkit-scrollbar {
+    display: none;
 }
 
 #home h1 {
