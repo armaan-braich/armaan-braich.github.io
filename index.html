@@ -19,154 +19,79 @@
         </header>
         <div class = "fade">
             <section id="home">
-                <h1> Armaan Braich</h1>
-                <p> Fourth-Year Computer Engineering Student</p>
-            </section>
-            <div id="full-description">
-                <section id="about">
+                <div id="name">
+                    <h1>Armaan Braich</h1>
+                    <p>Fourth-Year Computer Engineering Student</p>
+                </div>
+                <div id="full-description">
                     <div class="about-content">
                         <p>I'm a Computer Engineer passionate about building efficient and scalable systems. My work spans embedded systems, full-stack development, and AI-driven applications.
                             Whether optimizing low-level hardward interactions or designing cloud-based architectures, I enjoy tackling complex challenges with innovative solutions.
-                        </p>
-                    </div>
-                </section>
-                <section id="skills">
-                    <div class="skills-content">
-                        <p>I'm proficient in Java, C++, C, and Python, as well as HTML, CSS, and Javascript. I have lots of experience working in Linux, Windows, and Ubuntu. Some of the projects
+                            <br><br>
+                            I'm proficient in Java, C++, C, and Python, as well as HTML, CSS, and Javascript. I have lots of experience working in Linux, Windows, and Ubuntu. Some of the projects
                             you will see below include a full-stack chat messenger website, a chess game involving a Chess Engine, and a shell built entirely in the terminal.
                         </p>
                     </div>
-                </section>
-            </div>
+                </div>
+            </section>
         </div>
         
 
         <section id="projects">
             <h2>Projects</h2>
             <div id="all-projects">
-                <div class="project">
+                <div class="project" id="chess">
                     <div class="headers">
-                        <h1 class="smallHeader">Chess Game</h1>
-                        <h5 class="smallGenre">Python · Pygame</h5>
-                    </div>
-                    <div id="description" class="more-info">
-                        <p>A fully functional chess game created using Pygame and Python, with no other imported libraries. Supports checkmates, checks, all forms of draws, and even en passant. Seamlessly incorporates a chess engine, Leela Chess Zero, for suggested moves.</p>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/bRZyVjA7uZw?si=nOqltEgaEoZGkO8i" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>
-                    <div id="chessBtn" class="more-info">
-                        <button>See more</button>
+                        <h1>Chess Game</h1>
+                        <h5>Python · Pygame</h5>
                     </div>
                 </div>
-                <div class="project">
+                <div class="project" id="car">
                     <div class="headers">
-                        <h1 class="smallHeader">Autonomous Racing</h1>
-                        <h5 class="smallGenre">ROS2 · Python · C++</h5>
-                    </div>
-                    <div id="description" class="more-info">
-                        <p>An autonomous F1Tenth car capable of navigating around obstacles and finding ideal racing lines using LiDAR. Included camera functionality with a custom trained YOLO model to detect and recognize stop signs, speed signs, etc. and act accordingly.
-                            Programmed in both C++ and Python nodes for ROS 2 Foxy in Ubuntu.
-                        </p>
-                    </div>
-                    <div id="carBtn" class="more-info">
-                        <button>See more</button>
+                        <h1 >Autonomous Racing</h1>
+                        <h5 >ROS2 · Python · C++</h5>
                     </div>
                 </div>
-                <div class="project">
+                <div class="project" id="tempest">
                     <div class="headers">
-                        <h1 class="smallHeader">Tempest</h1>
-                        <h5 class="smallGenre">Kotlin · AWS · Node.js · DynamoDB</h5>
-                    </div>
-                    <div id="description" class="more-info">
-                        <p>Tempest is an android application, developed using Kotlin to allow users to get information about natural disasters near their location. Uses many external services, like Firebase Console for notifications,
-                            Google Authnetication for profile log-in/sign-up, as well as AWS for server hosting and DynamoDB.
-                        </p>
-                    </div>
-                    <div id="tempestBtn" class="more-info">
-                        <button>See more</button>
+                        <h1 >Tempest</h1>
+                        <h5 >Kotlin · AWS · Node.js · DynamoDB</h5>
                     </div>
                 </div>
-                <div class="project">
+                <div class="project" id="crash">
                     <div class="headers">
-                        <h1 class="smallHeader">crash</h1>
-                        <h5 class="smallGenre">C · Process Management · Signal Handling</h5>
-                    </div>
-                    <div id="description" class="more-info">
-                        <p>crash is a Unix-style terminal shell built in C, featuring signal-safe design, robust job control, process forking, and precise signal handling.
-                        </p>
-                    </div>
-                    <div id="crashBtn" class="more-info">
-                        <button>See more</button>
+                        <h1 >crash</h1>
+                        <h5 >C · Process Management · Signal Handling</h5>
                     </div>
                 </div>
-                <div class="project">
+                <div class="project" id="messenger">
                     <div class="headers">
-                        <h1 class="smallHeader">Full-Stack Messenger</h1>
-                        <h5 class="smallGenre">Javascript · Node.js</h5>
-                    </div>
-                    <div id="description" class="more-info">
-                        <p> Developed the frontend and backend of a messenger web app that allows users to create chat rooms and talk with users in the chat rooms. Uses a MongoDB to store messages and user information, with secure hashing for user privacy.
-                            Supports AI translation for 100+ languages.
-                        </p>
-                    </div>
-                    <div id="messengerBtn" class="more-info">
-                        <button>See more</button>
+                        <h1 >Full-Stack Messenger</h1>
+                        <h5 >Javascript · Node.js</h5>
                     </div>
                 </div>
-                <div class="project">
+                <div class="project" id="dnn">
                     <div class="headers">
                         <h1 class="extraSmallHeader">Hardware Accelerated DNN</h1>
-                        <h5 class="smallGenre">Verilog · Quartus · ModelSim</h5>
-                    </div>
-                    <div id="description" class="more-info">
-                        <p> Designed several slave-master interfaces with Quartus' Platform Designer, along with their SystemVerilog implementations to increase the efficiency of a deep neural network 
-                            through hardware acceleration. 
-                        </p>
-                        <img src="hardware_accelerator.jpg"></img>
-                    </div>
-                    <div id="dnnBtn" class="more-info">
-                        <button>See more</button>
+                        <h5 >Verilog · Quartus · ModelSim</h5>
                     </div>
                 </div>
-                <div class="project">
+                <div class="project" id="recipe">
                     <div class="headers">
-                        <h1 class="smallHeader">Recipe App</h1>
-                        <h5 class="smallGenre">Javascript · CSS · HTML · SQL · Oracle</h5>
-                    </div>
-                    <div id="description" class="more-info">
-                        <p> Created a full-stack web application that helps users discover creative, easy-to-follow recipes and track nutritional information. Used an Oracle database to manage users, ingredients, recipes, and more. 
-                            Followed a Controller-Service architecture for a clean and modular codebase.
-                        </p>
-                    </div>
-                    <div id="recipeBtn" class="more-info">
-                        <button>See more</button>
+                        <h1 >Recipe App</h1>
+                        <h5 >Javascript · CSS · HTML · SQL · Oracle</h5>
                     </div>
                 </div>
-                <div class="project">
+                <div class="project" id="baccarat">
                     <div class="headers">
-                        <h1 class="smallHeader">Baccarat</h1>
-                        <h5 class="smallGenre">Verilog · Quartus · ModelSim</h5>
-                    </div>
-                    <div id="description" class="more-info">
-                        <p> 
-                            Created a fully playable Baccarat game in SystemVerilog, designed to run on the DE1-SoC hardware platform. The entire game logic, including card dealing, hand scoring, and win/loss detection, was implemented from scratch, with real-time interaction using onboard hardware.
-                        </p>
-                    </div>
-                    <div id="baccaratBtn" class="more-info">
-                        <button>See more</button>
+                        <h1 >Baccarat</h1>
+                        <h5 >Verilog · Quartus · ModelSim</h5>
                     </div>
                 </div>
-                <div class="project">
+                <div class="project" id="os161">
                     <div class="headers">
-                        <h1 class="smallHeader">OS 161</h1>
-                        <h5 class="smallGenre">C · Syscalls · VM · Synchronization</h5>
-                    </div>
-                    <div id="description" class="more-info">
-                        <p>
-                            Worked extensively on the OS/161 educational operating system, implementing and debugging key components like system calls, process management, memory management, and virtual memory. Gained hands-on experience working with a real kernel in a low-level C environment.
-                        </p>                        
-                    </div>
-                    <div id="osBtn" class="more-info">
-                        <button>See more</button>
+                        <h1 >OS 161</h1>
+                        <h5 >C · Syscalls · VM · Synchronization</h5>
                     </div>
                 </div>
             </div>
@@ -179,7 +104,7 @@
                         <li><a href="javascript:void(0)" id="email">Email</a></li>
                         <li><a href="https://www.linkedin.com/in/armaan-braich" id="linkedIn">LinkedIn</a></li>
                         <li><a href="https://github.com/armaan-braich" id="gitHub">GitHub</a></li>
-                        <li><a href="#contact" id="phone">Phone Number</a></li>
+                        <li><a href="javascript:void(0)" id="phone">Phone Number</a></li>
                     </ul>
                 </nav>
             </div>
