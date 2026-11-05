@@ -1,4 +1,3 @@
-
 import Header from "./components/Header/Header";
 import Wall from "./components/Wall/Wall";
 import Scene from "./components/Wall/Scene";
@@ -8,8 +7,10 @@ function App() {
   return (
     <>
       <Header />
-      <Wall />
-      <Scene />
+      <div className="portfolio-wall">
+        <Wall />
+        <Scene />
+      </div>
     </>
   );
 }

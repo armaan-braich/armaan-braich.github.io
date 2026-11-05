@@ -22,3 +22,11 @@ button,
 a {
   font: inherit;
 }
+
+.portfolio-wall {
+  position: relative;
+  width: 100%;
+  min-height: 150vh;
+  background-color: #e8dfd0;
+  isolation: isolate;
+}
