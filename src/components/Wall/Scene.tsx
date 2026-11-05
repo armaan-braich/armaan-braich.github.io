@@ -2,6 +2,8 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Suspense, useState, useMemo, useRef } from "react";
 import { Object3D, SpotLight } from "three";
+import { Selection, Select, EffectComposer, Outline } from "@react-three/postprocessing";
+import { OutlineEffect } from "postprocessing";
 import Car from "./Car";
 import "../../styles/Scene.css";
 
@@ -54,10 +56,14 @@ function Shelf() {
 }
 
 
-function CarDisplay() {
-  const [hovered, setHovered] = useState(false);
-  const lightRef1 = useRef<SpotLight>(null);
-  const lightRef2 = useRef<SpotLight>(null);
+function CarDisplay({
+    hovered,
+    setHovered,
+  }: {
+    hovered: boolean;
+    setHovered: (value: boolean) => void;
+  }) {
+  const lightRef = useRef<SpotLight>(null);
 
   const target = useMemo(() => {
     const object = new Object3D();
@@ -66,16 +72,15 @@ function CarDisplay() {
   }, []);
 
   useFrame((_, delta) => {
-    const targetIntensity = hovered ? 18 : 0;
+    // Experiment with different target intensities since we are using just 1 light now
+    const targetIntensity = hovered ? 36 : 0;
     const fadeSpeed = 4;
 
-    [lightRef1, lightRef2].forEach((lightRef) => {
-      if (!lightRef.current) return;
+    if (!lightRef.current) return;
 
-      lightRef.current.intensity +=
-        (targetIntensity - lightRef.current.intensity) *
-        (1 - Math.exp(-delta * fadeSpeed));
-    });
+    lightRef.current.intensity +=
+      (targetIntensity - lightRef.current.intensity) *
+      (1 - Math.exp(-delta * fadeSpeed));
   });
 
   return (
@@ -86,41 +91,62 @@ function CarDisplay() {
     >
       <primitive object={target} />
 
-      <group rotation={[0, Math.PI / 2, 0]}>
-        <Suspense fallback={null}>
-          <Car />
-        </Suspense>
-      </group>
+      <Select enabled>
+        <group rotation={[0, Math.PI / 2, 0]}>
+          <Suspense fallback={null}>
+            <Car />
+          </Suspense>
+        </group>
+      </Select>
 
+      {/* Experiment with different light colors */}
       <spotLight
-        ref={lightRef1}
-        position={[-1.5, 1.5, 2]}
+        ref={lightRef}
+        position={[0, 1.5, 2]}
         target={target}
         intensity={0}
-        distance={6}
-        angle={1.1}
+        distance={0}
+        angle={1.3}
         penumbra={1}
         decay={2}
-        color="#4da6ff"
-      />
-
-      <spotLight
-        ref={lightRef2}
-        position={[1.5, 1.5, 2]}
-        target={target}
-        intensity={0}
-        distance={6}
-        angle={1.1}
-        penumbra={1}
-        decay={2}
-        color="#4da6ff"
+        color="#8060FF"
       />
     </group>
   );
 }
 
+function OutlineFade({ hovered }: { hovered: boolean }) {
+  const outlineRef = useRef<OutlineEffect>(null);
+
+  useFrame((_, delta) => {
+    if (!outlineRef.current) return;
+
+    const opacity = outlineRef.current.blendMode.opacity;
+
+    // Maybe experiment with targetOpacity? 2 seems like a happy medium tho
+    const targetOpacity = hovered ? 2 : 0;
+    const fadeSpeed = 4;
+
+    opacity.value +=
+      (targetOpacity - opacity.value) *
+      (1 - Math.exp(-delta * fadeSpeed));
+  });
+
+  // Experiment with different outline colors
+  return (
+    <Outline
+      ref={outlineRef}
+      edgeStrength={2}
+      visibleEdgeColor={0x9b7bff}
+      hiddenEdgeColor={0x9b7bff}
+      blur
+    />
+  );
+}
 
 export default function Scene() {
+  const [hovered, setHovered] = useState(false);
+
   return (
     <div className="scene-container">
       <Canvas
@@ -133,18 +159,24 @@ export default function Scene() {
         <ambientLight intensity={0.7} />
         <directionalLight position={[-4, 6, 5]} intensity={2.5} />
 
-        <group position={[0, 0, 0]}>
-          <Shelf />
+        <Selection>
+          <group position={[0, 0, 0]}>
+            <Shelf />
 
-          <group
-            position={[0, 0, -0.1]}
-            rotation={[0, 0, 0]}
-          >
-            <Suspense fallback={null}>
-              <CarDisplay />
-            </Suspense>
+            <group
+              position={[0, 0, -0.1]}
+              rotation={[0, 0, 0]}
+            >
+              <Suspense fallback={null}>
+                <CarDisplay hovered={hovered} setHovered={setHovered}/>
+              </Suspense>
+            </group>
           </group>
-        </group>
+
+          <EffectComposer autoClear={false}>
+            <OutlineFade hovered={hovered} />
+          </EffectComposer>
+        </Selection>
       </Canvas>
     </div>
   );
