@@ -1,0 +1,24 @@
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  font-family: Arial, sans-serif;
+  color: #302b25;
+
+  background: #e8dfd0;
+}
+
+button,
+a {
+  font: inherit;
+}

@@ -1,0 +1,74 @@
+
+.wall {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 76px;
+  background-color: #e8dfd0;
+}
+
+.wall-section {
+  position: relative;
+  height: 750px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wall-label {
+  position: absolute;
+  top: 100px;
+  left: 10%;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  color: #625649;
+}
+
+.wall-label span {
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+
+.wall-label h2 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+.shelf {
+  position: absolute;
+  top: 55%;
+  left: 15%;
+  width: 70%;
+  height: 18px;
+
+  background: linear-gradient(
+    to bottom,
+    #b99c77 0%,
+    #987854 35%,
+    #806443 100%
+  );
+
+  border-radius: 2px;
+
+  box-shadow:
+    0 5px 8px rgba(60, 45, 30, 0.15),
+    0 12px 18px rgba(60, 45, 30, 0.08);
+}
+
+.shelf-one {
+  top: 58%;
+}
+
+.shelf-two {
+  top: 52%;
+}
+
+.shelf-three {
+  top: 62%;
+}
+
+.shelf-four {
+  top: 50%;
+}
