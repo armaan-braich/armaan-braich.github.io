@@ -26,7 +26,7 @@ a {
 .portfolio-wall {
   position: relative;
   width: 100%;
-  min-height: 150vh;
+  min-height: 300vh;
   background-color: #e8dfd0;
   isolation: isolate;
 }

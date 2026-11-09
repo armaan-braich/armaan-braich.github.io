@@ -1,9 +1,70 @@
 .scene-container {
-  position: absolute;
-  inset: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 150vh;
+  height: 100vh;
   z-index: 10;
   pointer-events: auto;
   background: transparent;
+}
+
+.project-panel {
+  width: 350px;
+  max-height: 450px;
+  overflow-y: auto;
+  padding: 24px;
+  background: #e8dfd0;
+  border: 1px solid #b99a72;
+  border-radius: 8px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.project-panel button {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+
+  border: none;
+  background: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.project-panel::-webkit-scrollbar {
+  width: 7px;
+}
+
+.project-panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.project-panel::-webkit-scrollbar-thumb {
+  background: #c9bba7;
+  border-radius: 10px;
+}
+
+.project-panel::-webkit-scrollbar-thumb:hover {
+  background: #a8957c;
+}
+
+.project-category {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #8060a8;
+  font-weight: bold;
+}
+
+.project-panel h2 {
+  font-size: 24px;
+  margin: 12px 0;
+}
+
+.project-panel h3 {
+  font-size: 14px;
+  margin-top: 24px;
+}
+
+.project-panel p {
+  line-height: 1.6;
 }
