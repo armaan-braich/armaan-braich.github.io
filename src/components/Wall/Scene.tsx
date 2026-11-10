@@ -74,7 +74,7 @@ function CarDisplay({
             pointerEvents: "auto",
           }}
         >
-          <div className="project-panel">
+          <div className="project-panel" id="car-panel">
             <button onClick={(event) => {
               event.stopPropagation();
               onClick();
@@ -129,10 +129,14 @@ function PaintingDisplay({
   hovered,
   setHovered,
   image,
+  onClick,
+  paintingSelected,
 }: {
   hovered: boolean;
   setHovered: (value: boolean) => void;
   image: string;
+  onClick: () => void;
+  paintingSelected: boolean;
 }) {
   const lightRef = useRef<SpotLight>(null);
 
@@ -157,6 +161,10 @@ function PaintingDisplay({
     <group
       onPointerOver={() => setHovered(true)}
       onPointerOut={() => setHovered(false)}
+      onClick={(event) => {
+        event.stopPropagation();
+        onClick();
+      }}
     >
       <primitive object={target} />
 
@@ -169,6 +177,64 @@ function PaintingDisplay({
           />
         </Suspense>
       </Select>
+      {paintingSelected && (
+        <Html
+          position={[1.2, 1, 0]}
+          transform={false}
+          distanceFactor={undefined}
+          style={{
+            width: "350px",
+            pointerEvents: "auto",
+          }}
+        >
+          <div className="project-panel" id="painting-panel">
+            <button onClick={(event) => {
+              event.stopPropagation();
+              onClick();
+            }}>
+              ×
+            </button>
+
+            <p className="project-category">EDGE AI / GAME DEVELOPMENT</p>
+            <h2>AI Fantasy Game World</h2>
+
+            <p>
+              Developed an interactive fantasy game world featuring AI-powered
+              NPCs capable of personalized conversations and dynamic interactions,
+              using locally deployed language models.
+            </p>
+
+            <h3>Technologies</h3>
+            <p>React · TypeScript · Redux · WebLLM · AWS EC2</p>
+
+            <h3>Project details</h3>
+            <p>
+              Developed as part of my UBC Computer Engineering capstone project,
+              this system explored the use of smaller language models deployed
+              directly on edge devices to power interactive NPCs. The goal was
+              to make AI-driven interactions more accessible without relying
+              entirely on remote model inference.
+            </p>
+
+            <p>
+              My primary contributions focused on frontend development and
+              integrating the AI interaction pipeline. I implemented frontend
+              logic and state management using React and Redux, connecting
+              user interactions with NPC responses through the application's
+              communication pipeline. I also worked on structuring prompts
+              to give NPCs distinct personalities and enable more context-aware
+              conversations.
+            </p>
+
+            <p>
+              The project also involved exploring the limitations of running
+              smaller language models locally, particularly response speed
+              and hallucinations, and how these affected the overall user
+              experience.
+            </p>
+          </div>
+        </Html>
+      )}
 
       <spotLight
         ref={lightRef}
@@ -236,6 +302,7 @@ export default function Scene() {
   const [hovered, setHovered] = useState(false);
   const [carSelected, setCarSelected] = useState(false);
   const [paintingHovered, setPaintingHovered] = useState(false);
+  const [paintingSelected, setPaintingSelected] = useState(false);
 
   return (
     <div className="scene-container">
@@ -265,6 +332,8 @@ export default function Scene() {
               hovered={paintingHovered}
               setHovered={setPaintingHovered}
               image={HoneyveilImg}
+              onClick={() => setPaintingSelected((prev) => !prev)}
+              paintingSelected={paintingSelected}
             />
           </group>
 

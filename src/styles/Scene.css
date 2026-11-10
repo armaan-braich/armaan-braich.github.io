@@ -20,6 +20,14 @@
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
+#car-panel .project-category {
+  color: #8060FF;
+}
+
+#painting-panel .project-category {
+  color: #FFBF00;
+}
+
 .project-panel button {
   position: absolute;
   top: 12px;
@@ -51,7 +59,6 @@
 .project-category {
   font-size: 11px;
   letter-spacing: 2px;
-  color: #8060a8;
   font-weight: bold;
 }
 
